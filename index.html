@@ -1,160 +1,293 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta title="Home | Matt Cuento">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Matt Cuento | Portfolio</title>
+    <meta name="description" content="Matt Cuento's Portfolio Site.">
+    <meta name="keywords" content="portfolio, matt, cuento, tech, software, engineering, intern, programming, developer, web applications, back end, front end">
+    <meta name="author" content="Matt Cuento">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <style>
-    .navbar-colors a,
-    i {
-        color: white;
+    img {
+        box-shadow: 10px 10px 5px gray;
     }
     
     body {
-        background-image: url("01-004(1).jpg");
+        /* background-color: black; */
+        font-family: 'Courier New', Courier, monospace;
+        /* background-image: url("/img/beacons.jpg"); */
+        color: black;
+        margin-top: 20px;
+    }
+    
+    #first {
+        padding: 30px;
+        background-color: white;
+    }
+    
+    #heading {
+        background-color: white;
+    }
+    
+    .col-md-5 {
+        cursor: pointer;
+    }
+    
+    #heading-text {
+        font-size: 25px;
+    }
+    
+    #heading-incomplete-text {
+        font-size: 25px;
+    }
+    
+    #incomplete {
+        background-color: crimson;
+        z-index: 100;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+    }
+    
+    .mb-2>h1,
+    h1,
+    h2 {
+        text-decoration: underline;
+    }
+    
+    #resume {
+        border-radius: 5px;
+        background-color: #20506e;
+    }
+    
+    a:hover {
+        opacity: 80%;
+        /* text-decoration: underline; */
+        text-decoration: none;
+        color: #333333;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: black;
+    }
+    
+    .grid-title {
+        background-color: #CCCCCC;
+        border-radius: 5px;
+        box-shadow: 5px 5px 2px gray;
+    }
+    
+    .grid-title:hover {
+        background-color: #AAAAAA;
+    }
+    
+    .grid-image:hover {
+        background-color: #AAAAAA;
+    }
+    
+    .grid-image {
+        background-color: #DDDDDD;
+        border-radius: 5px;
+        box-shadow: 5px 5px 2px gray;
+    }
+    
+    .table {
+        border-radius: 5px;
+    }
+    
+    .left {
+        margin-right: 3px;
+    }
+    
+    .right {
+        margin-left: 3px;
+    }
+    
+    .table>div {
+        height: 250px;
+    }
+    
+    .table {
+        color: black;
+    }
+    
+    h4 {
+        margin: 5px;
+    }
+    
+    .film {
+        width: 50%;
+        height: 50%;
+        margin: 2px;
+    }
+    
+    #welcome,
+    #photo-link {
+        text-decoration-color: blue;
+    }
+    
+    #languages:hover,
+    #aws:hover,
+    #contact:hover,
+    #photos:hover,
+    #projects:hover,
+    #welcome:hover,
+    #intro:hover {
+        text-decoration: none;
+    }
+    
+    #aws {
+        text-decoration-color: coral;
+    }
+    
+    #projects {
+        text-decoration-color: rgb(10, 221, 10);
+    }
+    
+    #photos {
+        text-decoration-color: red;
+    }
+    
+    #contact,
+    #linkedin,
+    #github {
+        text-decoration-color: blueviolet;
+    }
+    
+    #languages {
+        text-decoration-color: deeppink;
+    }
+    
+    #zero {
+        background-image: url("/img/beacons.jpg");
+        height: 20vw;
+    }
+    
+    #intro-wrapper {
+        background-color: white;
+        display: inline-block;
     }
 </style>
 
 <body>
-    <nav class="navbar sticky-top bg-dark navbar-colors mb-3">
-        <ul class="navbar-nav">
-            <div><a class="nav-item" href="">Home</a>
-                <a class="nav-item" href="">Projects</a>
-                <a class="nav-item" href="">Contact</a>
-                <a class="nav-item" href="">Resume</a>
-        </ul>
-    </nav>
-    <main class="container">
-        <section class="zero">
-            <h1 class="text-center">Matt Cuento</h1>
+    <!-- <div id="heading" class="row p-1 incomplete"> -->
+    <div id="incomplete" class="row p-1">
+        <div class="col-md-12 text-center">
+            <!-- <h1 id="heading-text">
+                Matt Cuento, Software Engineering Major
+            </h1> -->
+            <h1 id="heading-incomplete-text">
+                <i>
+                    *Site still under construction... please visit again soon!
+                </i>
+            </h1>
+        </div>
+    </div>
+    <section id="zero" class="text-center pt-5">
+        <div id="intro-wrapper" class="p-3">
+            <h1 id="intro">Matt Cuento</h1>
+            <p>Cal Poly, San Luis Obispo 2021<br>Software Engineering</p>
+        </div>
+    </section>
+    <section id="first">
+        <div class="container mb-4 p-5">
+            <div class="mb-2">
+                <h1 id="welcome">Welcome</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Profile Image Here</div>
+                <div class="col-md-10">
+                    Welcome! My name is Matt Cuento and I am a 3rd year software engineering major at Cal Poly, San Luis Obispo. I'm a fun-loving, outdoorsy guy who resides in Aurora, Colorado. When I'm not in school or programming I love to ski the slopes of the Rocky Mountains
+                    or surf the beautiful beaches of San Luis Obispo. More often than not, I'll have my film camera ready to go by my side! You can see my favorite film shots <a href="#photos" id="photo-link">here</a>. I currently
+                    work as the Student Programmer for Associated Students Inc. on campus. I develop intuitive web applications for out internal teams and update the ASI website for the public.
+                </div>
+            </div>
             <hr>
-            <p class="text-center">
-                Hi there! My name is Matt Cuento and I am an incoming 3rd year software engineering major at Cal Poly San Luis Obispo. I spend a majority of my time outside of school working for Associated Students Inc. as the IT Programming Student Assistant, working
-                on side projects such as this, and you will most likely catch me at Avila beach or hiking Bishop's peak during the weekend.
-            </p>
-        </section>
-        <hr>
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="text-center">Work Experience</h2>
-                <br>
-                <p>
-                    As I mentioned earlier, I work for Associated Students Inc. or ASI on campus at Cal Poly for the IT team. I work on full-stack web applications to assist any of our internal teams such as our Events team, Student Government, and more. In addition to working
-                    on these applications, I help to maintain ASI"s main website and update its styles, content, and manage its database. Within my role, I use the following languages, libraries and frameworks to complete my work.
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item">CakePHP</li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item">HTML</li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item">Bootstrap</li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item">CSS</li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item">Javascript</li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item">jQuery</li>
-                    </ul>
-                </p>
+            <div class="mb-2">
+                <h2 id="aws">Powered by AWS</h2>
+            </div>
+            <p>Matt launched this site using AWS S3, Route53, and CodePipeline services to showcase his skills as a programmer and learn about the implementation of cloud technologies.</p>
+            <hr>
+            <div class="mb-2">
+                <h2 id="contact">Contact</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Need to get in touch with me?</p>
+                    <button id="resume" class="btn-info">Download Resume</button>
+                </div>
+                <div class="col-md-6">
+                    P: (205) 306-8068<br>E: mcuento@calpoly.edu<br>L: <a id="linkedin" href="http://www.linkedin.com/in/mcuento">www.linkedin.com/in/mcuento</a><br>G: <a id="github" href="http://www.github.com/mattcuento">www.github.com/mattcuento</a>
+                </div>
+            </div>
+            <hr>
+            <div class="mb-2">
+                <h2 id="languages">Languages & Frameworks</h2>
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul>
+                            <li>jQuery</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul>
+                            <li>Javascript</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul>
+                            <li>CSS</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul>
+                            <li>HTML</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="mb-2">
+                <h2 id="projects">Projects</h2>
+            </div>
+            <div class="table">
+                <div class="row mb-2">
+                    <div class="col-md-5 offset-1 grid-title left">
+                        <h4>Production Schedules</h4>
+                    </div>
+                    <div class="col-md-5 grid-image right">Screenshots</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 offset-1 left grid-image">Link & Screenshots</div>
+                    <div class="col-md-5 right grid-title">
+                        <h4>ASI Website</h4>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 offset-1 grid-title left">
+                        <h4>DRC Tram Web App</h4>
+                    </div>
+                    <div class="col-md-5 grid-image right">Link / Screenshots</div>
+                </div>
+            </div>
+            <hr>
+            <div class="mb-2">
+                <h2 id="photos">Photos</h2>
+            </div>
+            <div class="row">
+                <img class="film" src="/img/beacons.jpg">
+                <img src="/img/morro.jpg" class="film">
             </div>
         </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-6">
-                <h2 class="text-center">Languages</h2>
-                <br>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>Java</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            experience
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>Python</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            experience
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>C</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            experience
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>Assembly</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            experience
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>HTML</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            experience
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>CSS</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            experience
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>Javascript</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            experience
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>PHP</h3>
-                    </div>
-                    <div class="col-md-4">
-                        <p>
-                            experience fdafadasafafa fdsafsdafsafsfafa fdsafasfsafdsaf
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="col-md-6">
-                <h2 class="text-center">Education</h2>
-                <br>
-                <strong>Calfornia Polytechnic University, San Luis Obispo</strong><i>Class of 2021</i>
-            </div>
-        </div>
-    </main>
-    <footer>
-
-    </footer>
+    </section>
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>
