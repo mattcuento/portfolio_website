@@ -14,16 +14,13 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <style>
-    img {
-        box-shadow: 10px 10px 5px gray;
-    }
+    img {}
     
     body {
         /* background-color: black; */
         font-family: 'Courier New', Courier, monospace;
         /* background-image: url("/img/beacons.jpg"); */
         color: black;
-        margin-top: 20px;
     }
     
     #first {
@@ -53,7 +50,7 @@
         position: fixed;
         left: 0;
         top: 0;
-        width: 100vw;
+        width: 100%;
     }
     
     .mb-2>h1,
@@ -63,15 +60,29 @@
     }
     
     #resume {
-        border-radius: 5px;
-        background-color: #20506e;
+        border-radius: 2px;
+        background-color: blueviolet;
+        border: none;
+        text-decoration: underline;
+    }
+    
+    #resume>a {
+        color: white;
+    }
+    
+    #resume:hover {
+        text-decoration: none;
+        opacity: .8;
+    }
+    
+    #resume:active {
+        opacity: .7;
     }
     
     a:hover {
-        opacity: 80%;
+        opacity: .8;
         /* text-decoration: underline; */
         text-decoration: none;
-        color: #333333;
     }
     
     a {
@@ -81,7 +92,7 @@
     
     .grid-title {
         background-color: #CCCCCC;
-        border-radius: 5px;
+        border-radius: 2px;
         box-shadow: 5px 5px 2px gray;
     }
     
@@ -89,48 +100,35 @@
         background-color: #AAAAAA;
     }
     
-    .grid-image:hover {
-        background-color: #AAAAAA;
-    }
-    
-    .grid-image {
-        background-color: #DDDDDD;
-        border-radius: 5px;
-        box-shadow: 5px 5px 2px gray;
-    }
-    
     .table {
-        border-radius: 5px;
-    }
-    
-    .left {
-        margin-right: 3px;
-    }
-    
-    .right {
-        margin-left: 3px;
-    }
-    
-    .table>div {
-        height: 250px;
+        border-radius: 2px;
+        font-size: 10pt;
     }
     
     .table {
         color: black;
     }
     
-    h4 {
-        margin: 5px;
+    h3 {
+        margin: 2px;
+        font-size: 14pt;
+        text-decoration: underline;
+    }
+    
+    h3:hover {
+        text-decoration: none;
     }
     
     .film {
-        width: 50%;
-        height: 50%;
+        box-shadow: 5px 5px 2px gray;
+        width: 30vw;
+        height: 20vw;
         margin: 2px;
     }
     
     #welcome,
-    #photo-link {
+    #photo-link,
+    #nav-welcome {
         text-decoration-color: blue;
     }
     
@@ -140,59 +138,168 @@
     #photos:hover,
     #projects:hover,
     #welcome:hover,
-    #intro:hover {
+    #intro:hover,
+    #nav-contact:hover,
+    #nav-projects:hover,
+    #nav-welcome:hover,
+    #nav-languages:hover,
+    #nav-photos:hover,
+    #nav-aws:hover {
         text-decoration: none;
     }
     
-    #aws {
+    #languages:hover,
+    #nav-languages:hover {
+        color: deeppink;
+    }
+    
+    #contact:hover,
+    #linkedin:hover,
+    #github:hover,
+    #nav-contact:hover {
+        color: blueviolet;
+    }
+    
+    #photos:hover,
+    #nav-photos:hover {
+        color: red;
+    }
+    
+    #projects:hover,
+    #nav-projects:hover {
+        color: rgb(10, 221, 10);
+    }
+    
+    #welcome:hover,
+    #photo-link:hover,
+    #nav-welcome:hover {
+        color: blue;
+    }
+    
+    #aws:hover,
+    #nav-aws:hover {
+        color: coral;
+    }
+    
+    #aws,
+    #nav-aws {
         text-decoration-color: coral;
     }
     
-    #projects {
+    #projects,
+    #nav-projects {
         text-decoration-color: rgb(10, 221, 10);
     }
     
-    #photos {
+    #photos,
+    #nav-photos {
         text-decoration-color: red;
     }
     
     #contact,
     #linkedin,
-    #github {
+    #github,
+    #nav-contact {
         text-decoration-color: blueviolet;
     }
     
-    #languages {
+    #languages,
+    #nav-languages {
         text-decoration-color: deeppink;
     }
     
     #zero {
-        background-image: url("/img/beacons.jpg");
-        height: 20vw;
+        background-image: url("/img/code.jpg");
+        background-size: 100vw;
+        height: 25vw;
+        border-bottom: 3px solid rgb(10, 221, 10);
     }
     
     #intro-wrapper {
         background-color: white;
         display: inline-block;
     }
+    
+    hr {
+        background-color: black;
+    }
+    
+    #nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        background-color: rgba(83, 83, 83, .98);
+    }
+    
+    .no-opac {
+        color: white !important;
+    }
+    
+    #asi {
+        width: 10vw;
+        height: 10vw;
+    }
+    
+    .content-asi,
+    .content-res,
+    .content-drc,
+    .content-efile,
+    .content-prod {
+        display: none;
+    }
+    
+    .expand {
+        text-decoration: none;
+        float: right;
+    }
+    
+    .proj-title {
+        display: inline;
+    }
 </style>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark " id="nav">
+        <a href="#zero" class="navbar-brand">HOME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#welcome" id="nav-welcome" class="nav-link no-opac">Welcome</a></li>
+                <li class="nav-item">
+                    <a href="#aws" id="nav-aws" class="nav-link no-opac">Powered by AWS</a></li>
+                <li class="nav-item">
+                    <a href="#languages" id="nav-languages" class="nav-link no-opac">Languages & Frameworks</a></li>
+                <li class="nav-item">
+                    <a href="#projects" id="nav-projects" class="nav-link no-opac">Projects</a></li>
+                <li class="nav-item">
+                    <a href="#photos" id="nav-photos" class="nav-link no-opac">Photos</a></li>
+                <li class="nav-item">
+                    <a href="#contact" id="nav-contact" class="nav-link no-opac">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
     <!-- <div id="heading" class="row p-1 incomplete"> -->
-    <div id="incomplete" class="row p-1">
-        <div class="col-md-12 text-center">
-            <!-- <h1 id="heading-text">
+    <!-- <div class="container">
+        <div id="incomplete" class="row p-1">
+            <div class="col-md-12 text-center">
+                <!-- <h1 id="heading-text">
                 Matt Cuento, Software Engineering Major
             </h1> -->
-            <h1 id="heading-incomplete-text">
-                <i>
+    <!-- <h1 id="heading-incomplete-text">
+                    <i>
                     *Site still under construction... please visit again soon!
                 </i>
-            </h1>
-        </div>
-    </div>
-    <section id="zero" class="text-center pt-5">
-        <div id="intro-wrapper" class="p-3">
+                </h1>
+            </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <section id="zero" class="text-center pt-5"> -->
+        <div id="intro-wrapper" class="p-3 mt-5">
             <h1 id="intro">Matt Cuento</h1>
             <p>Cal Poly, San Luis Obispo 2021<br>Software Engineering</p>
         </div>
@@ -207,7 +314,7 @@
                 <div class="col-md-10">
                     Welcome! My name is Matt Cuento and I am a 3rd year software engineering major at Cal Poly, San Luis Obispo. I'm a fun-loving, outdoorsy guy who resides in Aurora, Colorado. When I'm not in school or programming I love to ski the slopes of the Rocky Mountains
                     or surf the beautiful beaches of San Luis Obispo. More often than not, I'll have my film camera ready to go by my side! You can see my favorite film shots <a href="#photos" id="photo-link">here</a>. I currently
-                    work as the Student Programmer for Associated Students Inc. on campus. I develop intuitive web applications for out internal teams and update the ASI website for the public.
+                    work as the Student Programmer for Associated Students Inc. on campus. I develop intuitive web applications for our internal teams and update the ASI website for the public.
                 </div>
             </div>
             <hr>
@@ -217,39 +324,38 @@
             <p>Matt launched this site using AWS S3, Route53, and CodePipeline services to showcase his skills as a programmer and learn about the implementation of cloud technologies.</p>
             <hr>
             <div class="mb-2">
-                <h2 id="contact">Contact</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>Need to get in touch with me?</p>
-                    <button id="resume" class="btn-info">Download Resume</button>
-                </div>
-                <div class="col-md-6">
-                    P: (205) 306-8068<br>E: mcuento@calpoly.edu<br>L: <a id="linkedin" href="http://www.linkedin.com/in/mcuento">www.linkedin.com/in/mcuento</a><br>G: <a id="github" href="http://www.github.com/mattcuento">www.github.com/mattcuento</a>
-                </div>
-            </div>
-            <hr>
-            <div class="mb-2">
                 <h2 id="languages">Languages & Frameworks</h2>
                 <div class="row">
                     <div class="col-md-3">
                         <ul>
                             <li>jQuery</li>
+                            <li>C</li>
+                            <li>PHP</li>
+                            <li>Firebase</li>
                         </ul>
                     </div>
                     <div class="col-md-3">
                         <ul>
                             <li>Javascript</li>
+                            <li>Git</li>
+                            <li>Unix/Linux</li>
+                            <li>Assembly</li>
                         </ul>
                     </div>
                     <div class="col-md-3">
                         <ul>
                             <li>CSS</li>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>CakePHP</li>
                         </ul>
                     </div>
                     <div class="col-md-3">
                         <ul>
                             <li>HTML</li>
+                            <li>TortoiseSVN</li>
+                            <li>MySQL</li>
+                            <li>Bootstrap</li>
                         </ul>
                     </div>
                 </div>
@@ -260,22 +366,62 @@
             </div>
             <div class="table">
                 <div class="row mb-2">
-                    <div class="col-md-5 offset-1 grid-title left">
-                        <h4>Production Schedules</h4>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
+                        <h3 class="proj-title">ASI Website</h3>
+                        <h3 class="expand mr-3">&plus;</h3>
+                        <div class="row align-items-center content-asi">
+                            <div class="col-md-9">
+                                <p>ffsdafa</p>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="http://www.asi.calpoly.edu" target="_blank"><img src="/img/asi.png" alt="ASI Website" id="asi"></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-5 grid-image right">Screenshots</div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md-5 offset-1 left grid-image">Link & Screenshots</div>
-                    <div class="col-md-5 right grid-title">
-                        <h4>ASI Website</h4>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
+                        <h3 class="proj-title">Production Schedules Application</h3>
+                        <h3 class="expand mr-3">&plus;</h3>
+                        <div class="row align-items-center content-prod">
+                            <div class="col-md-9">
+                                <p></p>
+                            </div>
+                            <div class="col-md-3">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md-5 offset-1 grid-title left">
-                        <h4>DRC Tram Web App</h4>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
+                        <h3 class="proj-title">DRC Tram Web Application</h3>
+                        <h3 class="expand mr-3">&plus;</h3>
+                        <div class="row align-items-center content-drc">
+                            <div class="col-md-6">
+                                <p></p>
+                            </div>
+                            <div class="col-md-3 offset-2">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-5 grid-image right">Link / Screenshots</div>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
+                        <h3 class="proj-title">E-Filing Application</h3>
+                        <h3 class="expand mr-3">&plus;</h3>
+                        <div class="row align-items-center content-efile">
+                            <div class="col-md-6">
+                                <p></p>
+                            </div>
+                            <div class="col-md-3 offset-2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
+                        <h3 class="proj-title">Reservations Application</h3>
+                        <h3 class="expand mr-3">&plus;</h3>
+                        <div class="row align-items-center content-res">
+                            <div class="col-md-6">
+                                <p></p>
+                            </div>
+                            <div class="col-md-3 offset-2">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -283,8 +429,25 @@
                 <h2 id="photos">Photos</h2>
             </div>
             <div class="row">
-                <img class="film" src="/img/beacons.jpg">
-                <img src="/img/morro.jpg" class="film">
+                <div class="col-md-5 offset-1 text-center">
+                    <img class="film" src="/img/beacons.jpg" alt="35mm, Beacons Beach">
+                </div>
+                <div class="col-md-5 text-center">
+                    <img src="/img/morro.jpg" class="film" alt="35mm, Morro Rock">
+                </div>
+            </div>
+            <hr>
+            <div class="mb-2">
+                <h2 id="contact">Contact</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Need to get in touch with me?</p>
+                    <button id="resume"><a href="/files/MattCuentoResume.pdf" target="_blank">Download Resume</a></button>
+                </div>
+                <div class="col-md-6">
+                    P: (205) 306-8068<br>E: mcuento@calpoly.edu<br>L: <a id="linkedin" href="http://www.linkedin.com/in/mcuento">www.linkedin.com/in/mcuento</a><br>G: <a id="github" href="http://www.github.com/mattcuento">www.github.com/mattcuento</a>
+                </div>
             </div>
         </div>
     </section>
