@@ -258,7 +258,8 @@
     .content-res,
     .content-drc,
     .content-efile,
-    .content-prod {
+    .content-prod,
+    .content-portfolio {
         display: none;
     }
     
@@ -280,7 +281,8 @@
     #prod:hover,
     #efile:hover,
     #res:hover,
-    #drc:hover {
+    #drc:hover,
+    #portfolio:hover {
         cursor: pointer;
     }
     
@@ -528,6 +530,25 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1 fade-in">
+                        <div id="portfolio">
+                            <h3 class="proj-title">Portfolio Website</h3>
+                            <h3 class="expand mr-3" id="plus-portfolio">&plus;</h3>
+                        </div>
+                        <div class="row align-items-center content-portfolio">
+                            <div class="col-md-12 p-2">
+                                <p class="tech">HTML | CSS | Javascript | jQuery | Bootstrap</p>
+                                <p>I feel like this project may be a little self-explanatory! As you can see, this project's main purpose was to showcase who I really am in addition to revealing my spark of creativity and skill as a programmer. Additionally,
+                                    this project was completed (and is still being iterated) while I have been abroad in Spain to keep my development sharp. In the future as I learn more React, I will be working to convert this site to be powered entirely
+                                    by the framework. My current code is linked below in a GitHub repository.
+                                </p>
+                            </div>
+                            <div class="col-md-3 align-content-center">
+                                <a href="https://github.com/mattcuento/portfolio_website" target="_blank"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <hr>
@@ -676,6 +697,17 @@
                     $(".content-drc").css("display", "flex");
                 } else {
                     $("#plus-drc").html("&plus;");
+                }
+
+            });
+        });
+        $("#portfolio").click(function() {
+            $(".content-portfolio").toggle(1000, function() {
+                if ($(".content-portfolio").css("display") != "none") {
+                    $("#plus-portfolio").html("&minus;");
+                    $(".content-portfolio").css("display", "flex");
+                } else {
+                    $("#plus-portfolio").html("&plus;");
                 }
 
             });
