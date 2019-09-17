@@ -12,9 +12,21 @@
     <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="https://kit.fontawesome.com/10adffc946.js"></script>
 </head>
 <style>
-    img {}
+    .fade-in {
+        opacity: 0;
+        transition: 250ms ease-in;
+    }
+    
+    .fade-in.appear {
+        opacity: 1;
+    }
     
     body {
         /* background-color: black; */
@@ -66,7 +78,7 @@
         text-decoration: underline;
     }
     
-    #resume>a {
+    #resume {
         color: white;
     }
     
@@ -80,7 +92,8 @@
     }
     
     a:hover {
-        opacity: .8;
+        opacity: .7;
+        color: inherit;
         /* text-decoration: underline; */
         text-decoration: none;
     }
@@ -94,10 +107,8 @@
         background-color: #CCCCCC;
         border-radius: 2px;
         box-shadow: 5px 5px 2px gray;
-    }
-    
-    .grid-title:hover {
-        background-color: #AAAAAA;
+        -moz-box-shadow: 5px 5px 2px gray;
+        -webkit-box-shadow: 5px 5px 2px gray;
     }
     
     .table {
@@ -211,7 +222,7 @@
     #zero {
         background-image: url("/img/code.jpg");
         background-size: 100vw;
-        height: 25vw;
+        /* height: 25vw; */
         border-bottom: 3px solid rgb(10, 221, 10);
     }
     
@@ -230,7 +241,7 @@
         left: 0;
         width: 100%;
         z-index: 1;
-        background-color: rgba(83, 83, 83, .98);
+        background-color: rgba(83, 83, 83, .95);
     }
     
     .no-opac {
@@ -238,8 +249,9 @@
     }
     
     #asi {
-        width: 10vw;
-        height: 10vw;
+        width: 2vw;
+        height: 2vw;
+        margin-bottom: 5%;
     }
     
     .content-asi,
@@ -258,30 +270,62 @@
     .proj-title {
         display: inline;
     }
+    
+    #profile {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    #asb:hover,
+    #prod:hover,
+    #efile:hover,
+    #res:hover,
+    #drc:hover {
+        cursor: pointer;
+    }
+    
+    #nav {
+        transition: .3s;
+    }
+    
+    .grid-title:hover {
+        background-color: rgb(200, 200, 200);
+    }
+    
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .nav-image {
+        color: white;
+    }
 </style>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark " id="nav">
-        <a href="#zero" class="navbar-brand">HOME</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item bubble">
                     <a href="#welcome" id="nav-welcome" class="nav-link no-opac">Welcome</a></li>
-                <li class="nav-item">
-                    <a href="#aws" id="nav-aws" class="nav-link no-opac">Powered by AWS</a></li>
-                <li class="nav-item">
+                <li class="nav-item bubble">
+                    <a href="#aws" id="nav-aws" class="nav-link no-opac">What am I up to?</a></li>
+                <li class="nav-item bubble">
                     <a href="#languages" id="nav-languages" class="nav-link no-opac">Languages & Frameworks</a></li>
-                <li class="nav-item">
+                <li class="nav-item bubble">
                     <a href="#projects" id="nav-projects" class="nav-link no-opac">Projects</a></li>
-                <li class="nav-item">
+                <li class="nav-item bubble">
                     <a href="#photos" id="nav-photos" class="nav-link no-opac">Photos</a></li>
-                <li class="nav-item">
+                <li class="nav-item bubble">
                     <a href="#contact" id="nav-contact" class="nav-link no-opac">Contact</a></li>
             </ul>
         </div>
+        <a href="https://github.com/mattcuento" target="_blank"><i class="fab fa-github p-2 nav-image"></i></a>
+        <a href="/files/MattCuentoResume.pdf" target="_blank"><i class="far fa-file p-2 nav-image"></i></a>
     </nav>
     <!-- <div id="heading" class="row p-1 incomplete"> -->
     <!-- <div class="container">
@@ -298,127 +342,189 @@
             </div> -->
     <!-- </div> -->
     <!-- </div> -->
-    <section id="zero" class="text-center pt-5"> -->
-        <div id="intro-wrapper" class="p-3 mt-5">
-            <h1 id="intro">Matt Cuento</h1>
-            <p>Cal Poly, San Luis Obispo 2021<br>Software Engineering</p>
+    <div id="zero" class="text-center pt-5 d-flex align-items-center justify-content-center">
+        <div id="intro-wrapper" class="p-3 m-5">
+            <h1 id="intro" class="bubble">Matt Cuento</h1>
+            <p>Cal Poly, San Luis Obispo<br>Software Engineering<br>Class of 2021</p>
         </div>
-    </section>
+    </div>
     <section id="first">
         <div class="container mb-4 p-5">
-            <div class="mb-2">
-                <h1 id="welcome">Welcome</h1>
+            <div class="mb-2 fade-in">
+                <h1 id="welcome" class="bubble">Welcome</h1>
             </div>
-            <div class="row">
-                <div class="col-md-2">Profile Image Here</div>
+            <div class="row fade-in">
+                <div class="col-md-2 pt-1">
+                    <table>
+                        <tr><img src="/img/profile.JPG" alt="Profile Picture" id="profile"></tr>
+                    </table>
+                </div>
                 <div class="col-md-10">
-                    Welcome! My name is Matt Cuento and I am a 3rd year software engineering major at Cal Poly, San Luis Obispo. I'm a fun-loving, outdoorsy guy who resides in Aurora, Colorado. When I'm not in school or programming I love to ski the slopes of the Rocky Mountains
-                    or surf the beautiful beaches of San Luis Obispo. More often than not, I'll have my film camera ready to go by my side! You can see my favorite film shots <a href="#photos" id="photo-link">here</a>. I currently
-                    work as the Student Programmer for Associated Students Inc. on campus. I develop intuitive web applications for our internal teams and update the ASI website for the public.
+                    Welcome! My name is Matt Cuento and I am a 3rd year software engineering major at Cal Poly, San Luis Obispo. I'm a fun-loving, outdoorsy guy who resides in Aurora, Colorado. When I'm not in school or programming I love to ski the slopes of the Rocky Mountains,
+                    surf the beautiful beaches of San Luis Obispo, or sit back and read a couple books. As of this past Summer, I've picked up film photography and more often than not, I'll have my camera by my side! You can see my favorite film shots
+                    <a href="#photos" id="photo-link">here</a>. I currently work as the Student Programmer for Associated Students Inc. on campus at Cal Poly. I develop intuitive web applications for our internal teams and update the ASI website for the
+                    public.
+                </div>
+            </div>
+            <hr>
+            <div class="mb-2 fade-in">
+                <h2 id="aws" class="bubble">What am I up to?</h2>
+            </div>
+            <div>
+                <p class="fade-in">Currently, I am studying abroad in Sevilla, Spain. I arrived on September 4th and will be living with three of my best friends for the next four months. In my first few weeks here I have been adjusting to a brand new culture nothing like
+                    anything I have experienced. As a child I moved around the U.S. many times and lived in 7 states which was eye-opening in itself, but coming to an entirely new continent where nearly no one speaks the same language has been quite the
+                    adjustment. Now that I've been settling down, I have my priorities in order and a plan for completing a couple different projects as well. Stay tuned!
+                </p>
+                <p class="fade-in">In my first couple weeks in Spain, I launched this site using AWS S3, Route53, and CodePipeline services to showcase my skills as a programmer and learn about the implementation of AWS technologies. Additionally, I have been working on
+                    learning React and will be beginning a small-scale project by converting my portfolio 1.0 site into a site fully powered by React. Finally, whilst working on my own implementation of a couple AWS technologies, I have been studying
+                    the general concepts of the cloud and all under the umbrella of AWS to take the Cloud Pracictioner exam. As of now, I plan on taking the exam upon my return to the states in December, however, with the recent addition of remote testing
+                    that was just unveiled, I may be able to sooner!
+                </p>
+            </div>
+            <hr>
+            <div class="mb-2">
+                <h2 id="languages" class="bubble fade-in">Languages & Frameworks</h2>
+            </div>
+            <div class="row fade-in">
+                <div class="col-md-3">
+                    <ul>
+                        <li>jQuery</li>
+                        <li>C</li>
+                        <li>PHP</li>
+                        <li>Firebase</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul>
+                        <li>Javascript</li>
+                        <li>Git</li>
+                        <li>Unix/Linux</li>
+                        <li>Assembly</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul>
+                        <li>CSS</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>CakePHP</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul>
+                        <li>HTML</li>
+                        <li>TortoiseSVN</li>
+                        <li>MySQL</li>
+                        <li>Bootstrap</li>
+                    </ul>
                 </div>
             </div>
             <hr>
             <div class="mb-2">
-                <h2 id="aws">Powered by AWS</h2>
+                <h2 id="projects" class="bubble fade-in">Projects</h2>
             </div>
-            <p>Matt launched this site using AWS S3, Route53, and CodePipeline services to showcase his skills as a programmer and learn about the implementation of cloud technologies.</p>
-            <hr>
-            <div class="mb-2">
-                <h2 id="languages">Languages & Frameworks</h2>
-                <div class="row">
-                    <div class="col-md-3">
-                        <ul>
-                            <li>jQuery</li>
-                            <li>C</li>
-                            <li>PHP</li>
-                            <li>Firebase</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <ul>
-                            <li>Javascript</li>
-                            <li>Git</li>
-                            <li>Unix/Linux</li>
-                            <li>Assembly</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <ul>
-                            <li>CSS</li>
-                            <li>Python</li>
-                            <li>Java</li>
-                            <li>CakePHP</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <ul>
-                            <li>HTML</li>
-                            <li>TortoiseSVN</li>
-                            <li>MySQL</li>
-                            <li>Bootstrap</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="mb-2">
-                <h2 id="projects">Projects</h2>
-            </div>
-            <div class="table">
+            <div class="table mt-1">
                 <div class="row mb-2">
-                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
-                        <h3 class="proj-title">ASI Website</h3>
-                        <h3 class="expand mr-3">&plus;</h3>
-                        <div class="row align-items-center content-asi">
-                            <div class="col-md-9">
-                                <p>ffsdafa</p>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1 fade-in">
+                        <div id="asb">
+                            <h3 class="proj-title">ASI Website</h3>
+                            <h3 class="expand mr-3" id="plus-asi">&plus;</h3>
+                        </div>
+                        <div class="row content-asi">
+                            <div class="col-md-12 p-2">
+                                <p class="tech">HTML | PHP | CSS | Bootstrap | CakePHP | Javascript | jQuery</p>
+                                <p>Updated several web applications within the website that reach thousands of students daily. Remove outdated styles and content and replace with updated versions.</p>
                             </div>
-                            <div class="col-md-3">
-                                <a href="http://www.asi.calpoly.edu" target="_blank"><img src="/img/asi.png" alt="ASI Website" id="asi"></a>
+                            <div class="col-md-3 align-content-center">
+                                <a href="http://www.asi.calpoly.edu" target="_blank"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
-                        <h3 class="proj-title">Production Schedules Application</h3>
-                        <h3 class="expand mr-3">&plus;</h3>
-                        <div class="row align-items-center content-prod">
-                            <div class="col-md-9">
-                                <p></p>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1 fade-in">
+                        <div id="prod">
+                            <h3 class="proj-title">Production Schedules Application</h3>
+                            <h3 class="expand mr-3" id="plus-prod">&plus;</h3>
+                        </div>
+                        <div class="row content-prod">
+                            <div class="col-md-12 p-2">
+                                <p class="tech">HTML | PHP | CSS | Bootstrap | CakePHP | Javascript | jQuery | SQL</p>
+                                <p>Designed and developed a production schedules tracking software for ASI's Events Team. This web application allows for clear communication between clients and ASI and record-tracking for every status of a schedule along
+                                    the way. The application speeds up processing of a schedule immensely allowing for more quickly and efficiently organized events. The application's main features include:
+                                    <ul>
+                                        <li>Status Tracking</li>
+                                        <li>Customer/Administrator Permissions</li>
+                                        <li>Automatic Status Alerts/Completions</li>
+                                        <li>Deadline Form Freezes</li>
+                                    </ul>
+                                </p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 align-content-center">
+                                <a href="https://drive.google.com/drive/folders/1Pqj1DRAGMV0Niuk2fkoqacEpt9FUFkPA?usp=sharing" target="_blank"><i class="fas fa-images "></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
-                        <h3 class="proj-title">DRC Tram Web Application</h3>
-                        <h3 class="expand mr-3">&plus;</h3>
-                        <div class="row align-items-center content-drc">
-                            <div class="col-md-6">
-                                <p></p>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1 fade-in">
+                        <div id="drc">
+                            <h3 class="proj-title">DRC Tram Web Application</h3>
+                            <h3 class="expand mr-3" id="plus-drc">&plus;</h3>
+                        </div>
+                        <div class="row content-drc">
+                            <div class="col-md-12 p-2">
+                                <p class="tech">HTML | CSS | Javascript | Firebase | Mapbox | Angular
+                                </p>
+                                <p>As a member of Quality of Life+, I developed a web application to revamp Cal Poly's Disability Resource Center transportation system along with a team of programmers and industrial engineers. The web application contained
+                                    views for students, administration, and drivers. The application provided students a way to track their rides and schedule new ones on the go. In addition, drivers could track their next pickups and administrators could
+                                    oversee all operations from a higher access level. The application featured:
+                                    <ul>
+                                        <li>Live Location Tracking</li>
+                                        <li>Routing Algorithm</li>
+                                        <li>Differentiatied Permissions</li>
+                                        <li>Styled Map of Stops</li>
+                                        <li>User Registration/Eligibility Dates</li>
+                                    </ul>
+                                </p>
                             </div>
-                            <div class="col-md-3 offset-2">
+                            <div class="col-md-3 align-content-center">
+                                <a href="https://github.com/mattcuento/drc_website" target="_blank"><i class="fab fa-github "></i></a>
+                                <a href="https://drive.google.com/drive/folders/1mP6Z_TPKUHF-TRnAZaip97fUzmYCy23o?usp=sharing" target="_blank"><i class="fas fa-images "></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
-                        <h3 class="proj-title">E-Filing Application</h3>
-                        <h3 class="expand mr-3">&plus;</h3>
-                        <div class="row align-items-center content-efile">
-                            <div class="col-md-6">
-                                <p></p>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1 fade-in">
+                        <div id="efile">
+                            <h3 class="proj-title">E-Filing Application</h3>
+                            <h3 class="expand mr-3" id="plus-efile">&plus;</h3>
+                        </div>
+                        <div class="row content-efile">
+                            <div class="col-md-12 p-2">
+                                <p class="tech">HTML | CSS | Javascript | PHP | CakePHP | SQL | jQuery</p>
+                                <p>I programmed additional features to ASI's Student Government E-Filing web application. I reviewed the current UI and UX and proposed a new pathway for a more intuitive UX. Once approved, I utilized Figma to create mockups
+                                    of new landing pages for potential candidates. Additionally, I created a data table on the administrator landing page with statuses in the filing process for all candidates. After review, more status checks and changes
+                                    to the organization of the candidate view will be made upon my return from my study abroad program in January.
+                                </p>
                             </div>
-                            <div class="col-md-3 offset-2">
+                            <div class="col-md-3 align-content-center">
+                                <a href="http://www.asi.calpoly.edu/dashboard" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://drive.google.com/drive/folders/1vDFnHabwmlJXYUHpodDo_Ckj-1Rtwrvs?usp=sharing" target="_blank"><i class="fas fa-images "></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 offset-1 grid-title mb-2 p-1">
-                        <h3 class="proj-title">Reservations Application</h3>
-                        <h3 class="expand mr-3">&plus;</h3>
+                    <div class="col-md-10 offset-1 grid-title mb-2 p-1 fade-in">
+                        <div id="res">
+                            <h3 class="proj-title">Reservations Application</h3>
+                            <h3 class="expand mr-3" id="plus-res">&plus;</h3>
+                        </div>
                         <div class="row align-items-center content-res">
-                            <div class="col-md-6">
-                                <p></p>
+                            <div class="col-md-12 p-2">
+                                <p class="tech">HTML | CSS | Javascript | PHP | CakePHP | SQL | jQuery</p>
+                                <p>Programmed additional administrative feature's to ASI's reservations application that allows students to book fitness classes and spaces. Added the feature to add and edit recurring classes from the administrative end.
+                                    Created a cancel and delete feature for reservations, one of which remains in the database for record-tracking while the other can be overriden. Discovered bugs in the original production code and fixed the view of
+                                    the class schedule from skipping over certain classes.
+                                </p>
                             </div>
-                            <div class="col-md-3 offset-2">
+                            <div class="col-md-3 align-content-center">
+                                <a href="http://www.asi.calpoly.edu/reservations/reserve/GroupExercise" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://drive.google.com/drive/folders/1sWoPXxugF83X0ggOLIPqNbGeWM3gv6rg?usp=sharing" target="_blank"><i class="fas fa-images"></i></a>
                             </div>
                         </div>
                     </div>
@@ -426,31 +532,187 @@
             </div>
             <hr>
             <div class="mb-2">
-                <h2 id="photos">Photos</h2>
+                <h2 id="photos" class="bubble fade-in">Photos</h2>
             </div>
-            <div class="row">
-                <div class="col-md-5 offset-1 text-center">
-                    <img class="film" src="/img/beacons.jpg" alt="35mm, Beacons Beach">
-                </div>
-                <div class="col-md-5 text-center">
-                    <img src="/img/morro.jpg" class="film" alt="35mm, Morro Rock">
+            <div class="row fade-in">
+                <div class="col-md-12">
+                    <div class="wrapper">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <img src="/img/beacons.jpg" alt="Watching surfers at Beacons beach">
+                            </div>
+                            <div class="item">
+                                <img src="/img/morro.jpg" alt="A fine view of Morro Rock">
+                            </div>
+                            <div class="item">
+                                <img src="/img/car.jpg" alt="Driving around with friends">
+                            </div>
+                            <div class="item">
+                                <img src="/img/crowd.jpg" alt="Waiting for Flume to come out">
+                            </div>
+                            <div class="item">
+                                <img src="/img/double.jpg" alt="An accidental double exposure en route to the beach">
+                            </div>
+                            <div class="item">
+                                <img src="/img/encinitas.jpg" alt="Entering my favorite area in San Diego">
+                            </div>
+                            <div class="item">
+                                <img src="/img/griffin.jpg" alt="A first attempt at a double exposure">
+                            </div>
+                            <div class="item">
+                                <img src="/img/osl.jpg" alt="A crowded Saturday at Outside Lands">
+                            </div>
+                            <div class="item">
+                                <img src="/img/surf.jpg" alt="On our way to a surf session">
+                            </div>
+                            <div class="item">
+                                <img src="/img/steelee.jpg" alt="Walking with friends at Outside Lands">
+                            </div>
+                            <div class="item">
+                                <img src="/img/reed.jpg" alt="A serious friend during a game of pool">
+                            </div>
+                            <div class="item">
+                                <img src="/img/pismo.jpg" alt="A calming sunset at Pismo Beach, CA">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr>
             <div class="mb-2">
-                <h2 id="contact">Contact</h2>
+                <h2 id="contact" class="bubble fade-in">Contact</h2>
             </div>
-            <div class="row">
+            <div class="row fade-in">
                 <div class="col-md-6">
                     <p>Need to get in touch with me?</p>
-                    <button id="resume"><a href="/files/MattCuentoResume.pdf" target="_blank">Download Resume</a></button>
+                    <a href="/files/MattCuentoResume.pdf" target="_blank"><button id="resume">Download Resume</button></a>
                 </div>
                 <div class="col-md-6">
-                    P: (205) 306-8068<br>E: mcuento@calpoly.edu<br>L: <a id="linkedin" href="http://www.linkedin.com/in/mcuento">www.linkedin.com/in/mcuento</a><br>G: <a id="github" href="http://www.github.com/mattcuento">www.github.com/mattcuento</a>
+                    P: (205) 306-8068<br>E: mcuento@calpoly.edu<br>L: <a id="linkedin" href="http://www.linkedin.com/in/mcuento" target="_blank">www.linkedin.com/in/mcuento</a><br>G: <a id="github" href="http://www.github.com/mattcuento" target="_blank">www.github.com/mattcuento</a>
                 </div>
             </div>
         </div>
     </section>
 </body>
+<script>
+    $(document).ready(function() {
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 1
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            })
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        })
+
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            }
+        });
+        $(".bubble").hover(
+            function() {
+                $(this).animate({
+                    marginTop: "-=1%",
+                    marginBottom: "+=1%"
+                }, 200)
+            },
+            function() {
+                $(this).animate({
+                    marginTop: "0%",
+                    marginBottom: "0%"
+                }, 200)
+
+            }
+        );
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $("#nav").css({
+                    "opacity": "0"
+                });
+            } else {
+                $("#nav").css({
+                    "opacity": "1"
+                });
+            }
+        })
+        $("#res").click(function() {
+            $(".content-res").toggle(1000, function() {
+                if ($(".content-res").css("display") != "none") {
+                    $("#plus-res").html("&minus;");
+                    $(".content-res").css("display", "flex");
+                } else {
+                    $("#plus-res").html("&plus;");
+                }
+
+            });
+        });
+        $("#drc").click(function() {
+            $(".content-drc").toggle(1000, function() {
+                if ($(".content-drc").css("display") != "none") {
+                    $("#plus-drc").html("&minus;");
+                    $(".content-drc").css("display", "flex");
+                } else {
+                    $("#plus-drc").html("&plus;");
+                }
+
+            });
+        });
+        $("#efile").click(function() {
+            $(".content-efile").toggle(1000, function() {
+                if ($(".content-efile").css("display") != "none") {
+                    $("#plus-efile").html("&minus;");
+                    $(".content-efile").css("display", "flex");
+                } else {
+                    $("#plus-efile").html("&plus;");
+                }
+
+            });
+        });
+        $("#prod").click(function() {
+            $(".content-prod").toggle(1000, function() {
+                if ($(".content-prod").css("display") != "none") {
+                    $("#plus-prod").html("&minus;");
+                    $(".content-prod").css("display", "flex");
+                } else {
+                    $("#plus-prod").html("&plus;");
+                }
+
+            });
+        });
+        $("#asb").click(function() {
+            $(".content-asi").toggle(1000, function() {
+                if ($(".content-asi").css("display") != "none") {
+                    $("#plus-asi").html("&minus;");
+                    $(".content-asi").css("display", "flex");
+                } else {
+                    $("#plus-asi").html("&plus;");
+                }
+            });
+        });
+    });
+</script>
 
 </html>
